@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🟠 High
-- **Frontend Target**: Flutter (`/frontend`)
-- **Backend Target**: Firebase Firestore (`/firebase`), Python (`/backend` — future, for Google Sheets export and WhatsApp bot)
+- **Frontend Target**: React / Next.js (`/frontend`)
+- **Backend Target**: Flask / PostgreSQL (`/backend`), Python (`/backend` — for Google Sheets export and WhatsApp bot)
 
 ## Overview
 Reports aggregate payment and expense data into summaries that administrators can **view in-app**, **copy as formatted text to paste into WhatsApp**, or **export to Google Sheets**. This is the primary accountability tool for the condominium.
@@ -59,7 +59,7 @@ Total gastado: $850 MXN
 ```
 
 ## Technical Notes
-- **Clipboard**: Use Flutter's `Clipboard.setData()` to copy the formatted string.
+- **Clipboard**: Use the browser clipboard API (`navigator.clipboard.writeText()`) to copy the formatted string.
 - **Google Sheets**: Use the Google Sheets API via the Python backend. The admin provides a sheet ID, and the backend writes the report data as rows.
 - **WhatsApp Bot**: Future feature using the WhatsApp Business API or a Twilio integration on the Python backend.
 

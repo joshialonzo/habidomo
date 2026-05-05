@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Core Financial)
-- **Frontend Target**: Flutter (`/frontend`)
-- **Backend Target**: Firebase Firestore (`/firebase`)
+- **Frontend Target**: React / Next.js (`/frontend`)
+- **Backend Target**: Flask / PostgreSQL (`/backend`)
 
 ## Overview
 A **Payment** records money received from a neighbor for their condominium dues. Payments are associated with both a **neighbor** and a **house**, and are tagged to a specific **month/year** period.
@@ -19,19 +19,19 @@ A **Payment** records money received from a neighbor for their condominium dues.
 ## Data Model
 ```json
 {
-  "paymentId": "string (auto-generated)",
-  "houseId": "string (FK to houses)",
-  "neighborId": "string (FK to neighbors — who made the payment)",
+  "payment_id": "string (auto-generated)",
+  "house_id": "string (FK to houses)",
+  "neighbor_id": "string (FK to neighbors — who made the payment)",
   "amount": "number (in MXN)",
-  "periodMonth": "number (1-12)",
-  "periodYear": "number (e.g., 2026)",
-  "paymentDate": "timestamp (when the money was received)",
-  "paymentMethod": "string ('cash' | 'transfer' | 'deposit' | 'other')",
-  "receiptUrl": "string (optional, link to uploaded photo of receipt)",
+  "period_month": "number (1-12)",
+  "period_year": "number (e.g., 2026)",
+  "payment_date": "timestamp (when the money was received)",
+  "payment_method": "string ('cash' | 'transfer' | 'deposit' | 'other')",
+  "receipt_url": "string (optional, link to uploaded photo of receipt)",
   "notes": "string (optional)",
-  "createdAt": "timestamp",
-  "updatedAt": "timestamp",
-  "createdBy": "string (admin UID who recorded it)"
+  "created_at": "timestamp",
+  "updated_at": "timestamp",
+  "created_by": "string (admin UID who recorded it)"
 }
 ```
 

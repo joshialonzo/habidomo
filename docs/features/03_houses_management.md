@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Data Foundation)
-- **Frontend Target**: Flutter (`/frontend`)
-- **Backend Target**: Firebase Firestore (`/firebase`)
+- **Frontend Target**: React / Next.js (`/frontend`)
+- **Backend Target**: Flask / PostgreSQL (`/backend`)
 
 ## Overview
 A **House** represents a physical property (lot) within the condominium. Each house belongs to exactly one Section and can have one or more Neighbors associated with it.
@@ -19,14 +19,14 @@ A **House** represents a physical property (lot) within the condominium. Each ho
 ## Data Model
 ```json
 {
-  "houseId": "string (auto-generated)",
-  "sectionId": "string (FK to sections)",
-  "lotNumber": "string (e.g., 'Lote 14')",
+  "house_id": "string (auto-generated)",
+  "section_id": "string (FK to sections)",
+  "lot_number": "string (e.g., 'Lote 14')",
   "address": "string (e.g., 'Calle 10 #14')",
   "status": "string ('active' | 'vacant' | 'under_construction')",
-  "currentBalance": "number (computed: total dues - total payments)",
-  "createdAt": "timestamp",
-  "updatedAt": "timestamp"
+  "current_balance": "number (computed: total dues - total payments)",
+  "created_at": "timestamp",
+  "updated_at": "timestamp"
 }
 ```
 

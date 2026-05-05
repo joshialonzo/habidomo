@@ -7,10 +7,11 @@ This file defines the coding style conventions for both human and AI contributor
 - All code must be strongly typed (no `dynamic` in Dart, use type hints in Python).
 - Write brief documentation for complex functions.
 
-## Flutter / Dart
-- **Formatting**: Run `dart format .` before finalizing code.
-- **Widgets**: Extract large widget trees into separate smaller widgets. Use `const` constructors aggressively.
-- **File Naming**: Use `snake_case` for file names (e.g., `login_screen.dart`).
+## Frontend / React / TypeScript
+- **Formatting**: Run `prettier --write .` and `npm run lint` before finalizing code.
+- **Components**: Keep React components small and reusable. Prefer hooks and composable UI primitives.
+- **Typing**: Use strict TypeScript types. Avoid `any` unless there is a strong reason.
+- **File Naming**: Use `PascalCase` for React component files, `kebab-case` for route/page files, and `camelCase` for utility modules.
 
 ## Python 
 - **Formatting**: Use explicit formatters like `black` or `ruff`.

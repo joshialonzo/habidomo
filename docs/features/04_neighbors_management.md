@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Data Foundation)
-- **Frontend Target**: Flutter (`/frontend`)
-- **Backend Target**: Firebase Firestore (`/firebase`)
+- **Frontend Target**: React / Next.js (`/frontend`)
+- **Backend Target**: Flask / PostgreSQL (`/backend`)
 
 ## Overview
 A **Neighbor** is a person associated with a house. Neighbors are identified by their **phone number** (which doubles as their login identity). A house can have multiple neighbors (e.g., spouses), and a neighbor could theoretically own multiple houses.
@@ -19,15 +19,15 @@ A **Neighbor** is a person associated with a house. Neighbors are identified by 
 ## Data Model
 ```json
 {
-  "neighborId": "string (auto-generated)",
-  "firebaseUid": "string (linked after phone verification, nullable)",
-  "phoneNumber": "string (E.164 format, e.g., '+529991234567')",
-  "fullName": "string",
-  "houseIds": ["string (FK to houses)"],
+  "neighbor_id": "string (auto-generated)",
+  "user_id": "string (linked after phone verification, nullable)",
+  "phone_number": "string (E.164 format, e.g., '+529991234567')",
+  "full_name": "string",
+  "house_ids": ["string (FK to houses)"],
   "role": "string ('neighbor_active' | 'neighbor_delinquent' | 'admin' | 'oversight_committee')",
-  "isActive": "boolean",
-  "createdAt": "timestamp",
-  "updatedAt": "timestamp"
+  "is_active": "boolean",
+  "created_at": "timestamp",
+  "updated_at": "timestamp"
 }
 ```
 
@@ -40,7 +40,7 @@ A **Neighbor** is a person associated with a house. Neighbors are identified by 
 - Phone number must be unique across all neighbors.
 - Phone number must be in valid E.164 format.
 - At least one house must be associated.
-- Cannot hard-delete a neighbor with payment history (use soft-delete via `isActive = false`).
+- Cannot hard-delete a neighbor with payment history (use soft-delete via `is_active = false`).
 
 ## Access Control
 | Role | Create | Read | Update | Delete |

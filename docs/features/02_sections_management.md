@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Data Foundation)
-- **Frontend Target**: Flutter (`/frontend`)
-- **Backend Target**: Firebase Firestore (`/firebase`)
+- **Frontend Target**: React / Next.js (`/frontend`)
+- **Backend Target**: Flask / PostgreSQL (`/backend`)
 
 ## Overview
 A **Section** is a logical grouping of houses — typically a street or a cluster of streets within the condominium. Sections are the top-level organizational unit.
@@ -18,12 +18,12 @@ A **Section** is a logical grouping of houses — typically a street or a cluste
 ## Data Model
 ```json
 {
-  "sectionId": "string (auto-generated)",
+  "section_id": "string (auto-generated)",
   "name": "string (e.g., 'Calle 10 - Poniente')",
   "description": "string (optional)",
-  "houseCount": "number (computed/denormalized)",
-  "createdAt": "timestamp",
-  "updatedAt": "timestamp"
+  "house_count": "number (computed/denormalized)",
+  "created_at": "timestamp",
+  "updated_at": "timestamp"
 }
 ```
 

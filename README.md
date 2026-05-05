@@ -4,31 +4,28 @@ Manager for the Real de Dzityá Condominio.
 
 ## Folder Structure
 
-This repository is organized to support a multi-platform frontend, scalable backends, and agentic coding workflows ("vibe-coding"):
+This repository is organized to support a modern web frontend, scalable backend, and agentic coding workflows ("vibe-coding"):
 
-- **/frontend/**: The Flutter application tailored for Android, iOS, and Web.
-- **/backend/**: Designated for future backend APIs (e.g., Python FastAPI/Django) to handle advanced business logic and processing.
-- **/firebase/**: Contains Firebase configuration, security rules, Firestore indexes, and Cloud Functions.
+- **/frontend/**: The React / Next.js application for a responsive web client.
+- **/backend/**: The Flask backend with PostgreSQL for API and data storage.
 - **/docs/**: Markdown documentation for project parameters, keeping developers and AI coding agents aligned (includes PRD, tech stack, and API agreements).
-- **/scripts/**: Utility or bash scripts for launching emulators, local dev servers, and deployment automation.
+- **/scripts/**: Utility or bash scripts for launching local servers, migrations, and deployment automation.
 
 ## Running the Environments
 
-For instructions on how to run, build, and deploy specific parts of the stack, see the dedicated READMEs inside each folder:
+For instructions on how to run, build, and deploy specific parts of the stack, see the dedicated README inside the backend folder. Frontend setup documentation will be added once the React/Next.js app is scaffolded.
 
-- 📱 [**Frontend / Flutter App Instructions**](./frontend/README.md)
-- 🔥 [**Firebase & Emulator Instructions**](./firebase/README.md)
-- 🐍 [**Python Backend Instructions**](./backend/README.md)
+- 🐍 [**Backend / Flask API Instructions**](./backend/README.md)
 
 ## Documentation
 
 Project-level documentation lives in the [`docs/`](./docs/) directory:
 
 - 📋 [**PRD (Product Requirements)**](./docs/PRD.md) — What we are building, target audience, roles, and feature index.
-- 🏗️ [**Architecture**](./docs/ARCHITECTURE.md) — How the frontend, Firebase, and Python backend connect.
+- 🏗️ [**Architecture**](./docs/ARCHITECTURE.md) — How the frontend, backend, and database connect.
 - 🧰 [**Tech Stack**](./docs/TECH_STACK.md) — Approved frameworks, libraries, and versions.
-- 🎨 [**Style Guide**](./docs/STYLE_GUIDE.md) — Coding conventions for Dart and Python.
-- 🔌 [**API Contracts**](./docs/API_CONTRACTS.md) — Firestore schemas and backend endpoint definitions.
+- 🎨 [**Style Guide**](./docs/STYLE_GUIDE.md) — Coding conventions for TypeScript, React, and Python.
+- 🔌 [**API Contracts**](./docs/API_CONTRACTS.md) — Database schemas and backend endpoint definitions.
 
 ### Feature Specs
 

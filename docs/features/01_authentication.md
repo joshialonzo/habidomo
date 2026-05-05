@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Foundation)
-- **Frontend Target**: Flutter (`/frontend`)
-- **Backend Target**: Firebase Auth (`/firebase`)
+- **Frontend Target**: React / Next.js (`/frontend`)
+- **Backend Target**: Flask / PostgreSQL (`/backend`)
 
 ## Overview
 All users authenticate using their **phone number** as their primary identity. This is intentional — most condominium communication already happens on WhatsApp, so the phone number serves as a natural, universal identifier across the app and messaging channels.
@@ -25,8 +25,8 @@ All users authenticate using their **phone number** as their primary identity. T
 | `employee` | Home employees (maids, contractors). Minimal access. |
 
 ## Technical Requirements
-- Use Firebase Auth with **Phone Number Sign-In** (SMS OTP).
-- Store the user's role in a Firestore `users` collection, keyed by UID.
+- Use the Flask backend to manage phone-based OTP authentication and session or token issuance.
+- Store the user's role in the `users` table.
 - On first login, the user must be pre-registered by an Administrator (phone number must exist in the system before they can sign up). This prevents unauthorized access.
 - Role-based routing: after login, redirect the user to the appropriate dashboard based on their role.
 

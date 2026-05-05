@@ -5,15 +5,15 @@ change.
 
 ## Current Phase
 
-- [e.g. Not started / In progress / Complete]
+- In progress
 
 ## Current Goal
 
-- [What you are building right now]
+- Transition documentation and architecture references from the previous Flutter/Firebase stack to the new React/Next.js and Flask/PostgreSQL stack.
 
 ## Completed
 
-- None yet.
+- Updated `README.md` and `docs/` files to reflect the React/Next.js frontend and Flask/PostgreSQL backend.
 
 ## In Progress
 

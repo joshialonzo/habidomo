@@ -4,20 +4,21 @@
 This application uses a federated architecture separating the client app from the backend and database layers.
 
 ### 1. Frontend (`/frontend`)
-- **Framework**: Flutter (Dart)
-- **Platforms**: iOS, Android, Web
+- **Framework**: React / Next.js
+- **Platforms**: Web (responsive desktop and mobile)
 - **Role**: Presentation, user interaction, client-side state management.
 
-### 2. Backend - Phase 1 (`/firebase`)
-- **Technology**: Firebase (Firestore, Auth, Cloud Functions)
-- **Role**: Core data storage, real-time sync, serverless computing for initial logic.
+### 2. Backend (`/backend`)
+- **Technology**: Python / Flask
+- **Database**: PostgreSQL
+- **Role**: Core data storage, business logic, REST API, authentication, reporting, and integrations.
 
-### 3. Backend - Phase 2 (`/backend`)
-- **Technology**: Python (FastAPI/Django - TBD)
-- **Role**: Will eventually handle complex business logic, background processing, and heavy compute tasks that Firebase functions are ill-suited for.
+### 3. Data Layer
+- **Data Store**: PostgreSQL
+- **Role**: Persist relational data for sections, houses, neighbors, payments, expenses, and users.
 
 ## Data Flow
-* [To be filled out: e.g., "The frontend listens to Firestore via Streams. When a user requests a heavy report, it hits the Python API which processes it and saves the result to Firestore"]*
+* [Example: "The frontend calls Flask REST endpoints. The backend reads and writes PostgreSQL tables. For heavy reports, the backend queries payments and expenses and returns a computed summary."]*
 
 ## Agent Instructions
 *When suggesting architectural changes, please review this document to ensure consistency with the master plan. If a change modifies this flow, update this document.*

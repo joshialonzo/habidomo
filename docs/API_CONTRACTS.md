@@ -1,20 +1,22 @@
 # API Contracts
 
-This file defines the data contracts and schemas passed between the frontend, Firebase, and Python backend.
+This file defines the data contracts and schemas passed between the frontend, PostgreSQL database, and Python backend.
 
-## Firestore Collections
+## Database Tables
 
-### `users` collection
+### `users` table
 ```json
 {
-  "uid": "string",
+  "id": "integer",
   "email": "string",
-  "displayName": "string",
-  "createdAt": "timestamp"
+  "display_name": "string",
+  "phone_number": "string",
+  "role": "string",
+  "created_at": "timestamp"
 }
 ```
 
-## Python API Endpoints (Future)
+## Python API Endpoints
 
 ### `GET /api/v1/health`
 **Response:**
@@ -25,4 +27,4 @@ This file defines the data contracts and schemas passed between the frontend, Fi
 ```
 
 ## Agent Instructions
-*When adding a new Firestore collection or a new endpoint in Python, document the JSON shape and URLs here so the frontend can easily generate its models.*
+*When adding a new database table or a new endpoint in Python, document the JSON shape and URLs here so the frontend can easily generate its models.*

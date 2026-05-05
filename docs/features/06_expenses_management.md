@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Core Financial)
-- **Frontend Target**: Flutter (`/frontend`)
-- **Backend Target**: Firebase Firestore (`/firebase`)
+- **Frontend Target**: React / Next.js (`/frontend`)
+- **Backend Target**: Flask / PostgreSQL (`/backend`)
 
 ## Overview
 An **Expense** records money spent by the condominium administration. Expenses are tagged to a specific **month/year** period and categorized for reporting clarity.
@@ -30,19 +30,19 @@ An **Expense** records money spent by the condominium administration. Expenses a
 ## Data Model
 ```json
 {
-  "expenseId": "string (auto-generated)",
+  "expense_id": "string (auto-generated)",
   "category": "string (from predefined list)",
   "description": "string (e.g., 'Monthly gardener payment')",
   "amount": "number (in MXN)",
-  "periodMonth": "number (1-12)",
-  "periodYear": "number (e.g., 2026)",
-  "expenseDate": "timestamp (when the money was spent)",
+  "period_month": "number (1-12)",
+  "period_year": "number (e.g., 2026)",
+  "expense_date": "timestamp (when the money was spent)",
   "vendor": "string (optional, who was paid)",
-  "receiptUrl": "string (optional, link to uploaded receipt photo)",
+  "receipt_url": "string (optional, link to uploaded receipt photo)",
   "notes": "string (optional)",
-  "createdAt": "timestamp",
-  "updatedAt": "timestamp",
-  "createdBy": "string (admin UID who recorded it)"
+  "created_at": "timestamp",
+  "updated_at": "timestamp",
+  "created_by": "string (admin UID who recorded it)"
 }
 ```
 
