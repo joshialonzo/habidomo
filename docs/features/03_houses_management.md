@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Data Foundation)
-- **Frontend Target**: React / Next.js (`/frontend`)
-- **Backend Target**: Flask / PostgreSQL (`/backend`)
+- **Frontend Target**: React / Next.js (`/apps/web`) + React Native (`/apps/mobile`)
+- **Backend Target**: AWS CDK / Lambda / DynamoDB (`/infra`)
 
 ## Overview
 A **House** represents a physical property (lot) within the condominium. Each house belongs to exactly one Section and can have one or more Neighbors associated with it.

@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Data Foundation)
-- **Frontend Target**: React / Next.js (`/frontend`)
-- **Backend Target**: Flask / PostgreSQL (`/backend`)
+- **Frontend Target**: React / Next.js (`/apps/web`) + React Native (`/apps/mobile`)
+- **Backend Target**: AWS CDK / Lambda / DynamoDB (`/infra`)
 
 ## Overview
 A **Neighbor** is a person associated with a house. Neighbors are identified by their **phone number** (which doubles as their login identity). A house can have multiple neighbors (e.g., spouses), and a neighbor could theoretically own multiple houses.

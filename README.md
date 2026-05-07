@@ -4,18 +4,19 @@ Manager for the Real de Dzityá Condominio.
 
 ## Folder Structure
 
-This repository is organized to support a modern web frontend, scalable backend, and agentic coding workflows ("vibe-coding"):
+This repository is organized to support separate apps, shared packages, and AWS infrastructure:
 
-- **/frontend/**: The React / Next.js application for a responsive web client.
-- **/backend/**: The Flask backend with PostgreSQL for API and data storage.
-- **/docs/**: Markdown documentation for project parameters, keeping developers and AI coding agents aligned (includes PRD, tech stack, and API agreements).
-- **/scripts/**: Utility or bash scripts for launching local servers, migrations, and deployment automation.
+- **/apps/web/**: The React / Next.js web application.
+- **/apps/mobile/**: The React Native mobile application.
+- **/infra/**: AWS CDK infrastructure and Lambda code.
+- **/docs/**: Markdown documentation for project parameters, keeping developers and AI coding agents aligned.
+- **/scripts/**: Utility scripts for local development and deployment automation.
 
 ## Running the Environments
 
-For instructions on how to run, build, and deploy specific parts of the stack, see the dedicated README inside the backend folder. Frontend setup documentation will be added once the React/Next.js app is scaffolded.
+For instructions on how to run, build, and deploy specific parts of the stack, see the dedicated README inside the infra folder. Frontend setup documentation will be added once the web and mobile apps are scaffolded.
 
-- 🐍 [**Backend / Flask API Instructions**](./backend/README.md)
+- 🏗️ [**Infra / AWS CDK Instructions**](./infra/README.md)
 
 ## Documentation
 
@@ -24,7 +25,7 @@ Project-level documentation lives in the [`docs/`](./docs/) directory:
 - 📋 [**PRD (Product Requirements)**](./docs/PRD.md) — What we are building, target audience, roles, and feature index.
 - 🏗️ [**Architecture**](./docs/ARCHITECTURE.md) — How the frontend, backend, and database connect.
 - 🧰 [**Tech Stack**](./docs/TECH_STACK.md) — Approved frameworks, libraries, and versions.
-- 🎨 [**Style Guide**](./docs/STYLE_GUIDE.md) — Coding conventions for TypeScript, React, and Python.
+- 🎨 [**Style Guide**](./docs/STYLE_GUIDE.md) — Coding conventions for TypeScript and React.
 - 🔌 [**API Contracts**](./docs/API_CONTRACTS.md) — Database schemas and backend endpoint definitions.
 
 ### Feature Specs

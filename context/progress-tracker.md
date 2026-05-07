@@ -9,11 +9,11 @@ change.
 
 ## Current Goal
 
-- Transition documentation and architecture references from the previous Flutter/Firebase stack to the new React/Next.js and Flask/PostgreSQL stack.
+- Transition documentation and architecture references from the previous Flutter/Firebase and Flask/PostgreSQL plans to the new AWS CDK / React / React Native stack.
 
 ## Completed
 
-- Updated `README.md` and `docs/` files to reflect the React/Next.js frontend and Flask/PostgreSQL backend.
+- Updated `README.md`, `docs/ARCHITECTURE.md`, `docs/TECH_STACK.md`, `docs/API_CONTRACTS.md`, and feature docs to reflect the AWS CDK / React / React Native architecture.
 
 ## In Progress
 
@@ -21,7 +21,7 @@ change.
 
 ## Next Up
 
-- [First unit to build]
+- Scaffold the `/infra`, `/apps/web`, and `/apps/mobile` workspaces and wire shared models.
 
 ## Open Questions
 

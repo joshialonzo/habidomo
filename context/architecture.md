@@ -2,41 +2,35 @@
 
 ## Stack
 
-| Layer     | Technology                  | Role   |
-| --------- | --------------------------- | ------ |
-| Framework | [e.g. Next.js + TypeScript] | [Role] |
-| UI        | [e.g. Tailwind + shadcn/ui] | [Role] |
-| Auth      | [e.g. Clerk]                | [Role] |
-| Database  | [e.g. Prisma + PostgreSQL]  | [Role] |
-| [Layer]   | [Technology]                | [Role] |
+| Layer      | Technology                          | Role                                                                 |
+| ---------- | ----------------------------------- | -------------------------------------------------------------------- |
+| Framework  | React / Next.js + React Native      | User interface for web and mobile                                    |
+| Infra      | AWS CDK (TypeScript)                | Define and deploy infrastructure, API Gateway, Lambda, and database  |
+| API        | API Gateway + Lambda                | Request routing, business logic, authentication, and integrations    |
+| Database   | DynamoDB                            | Persistent serverless NoSQL storage for app data                   |
+| Shared     | TypeScript packages                 | Cross-platform models, API client, and reusable UI/helpers          |
 
 ## System Boundaries
 
-- `[folder]` — [What this folder owns and is responsible for]
-- `[folder]` — [What this folder owns and is responsible for]
-- `[folder]` — [What this folder owns and is responsible for]
-- `[folder]` — [What this folder owns and is responsible for]
+- `/apps/web` — Web client UI owned by the React / Next.js application.
+- `/apps/mobile` — Mobile client UI owned by the React Native application.
+- `/infra` — CDK stacks, Lambda handlers, and infrastructure provisioning.
+- `/packages` — Shared cross-platform types, API client code, and UI utilities.
 
 ## Storage Model
 
-- **[Storage type e.g. Database]**: [What lives here —
-  e.g. metadata, ownership, relationships]
-- **[Storage type e.g. Blob/File Storage]**: [What lives
-  here — e.g. generated files, media, large artifacts]
+- **NoSQL Database:** DynamoDB stores sections, houses, neighbors, payments, expenses, and users.
+- **Blob/File Storage:** Receipt images or attachments may be stored in S3 and referenced from the DynamoDB model.
 
 ## Auth and Access Model
 
-- [How authentication works — e.g. Every user signs in
-  via Clerk]
-- [How ownership works — e.g. Every project has a single
-  owner]
-- [How access control works — e.g. Only the owner or a
-  collaborator can mutate project resources]
+- Authentication is managed through the API layer. The stack can use JWT tokens, Cognito, or a similar AWS-compatible auth flow.
+- Each user is identified by a phone number and a role.
+- Access control is enforced by the Lambda API layer and database relationships.
 
 ## Invariants
 
-1. [Rule the codebase must never violate — e.g. Request
-   handlers do not run long-lived background work]
-2. [Invariant two]
-3. [Invariant three]
-4. [Invariant four]
+1. Request handlers should remain stateless and offload persistence to the database.
+2. Infrastructure definitions are owned by `/infra` and must be deployable via CDK.
+3. Shared business models live in `/packages` to avoid duplication across web and mobile.
+4. Frontend applications do not directly access the database; all data access goes through the API layer.

@@ -4,7 +4,7 @@ This file defines the coding style conventions for both human and AI contributor
 
 ## General Guidelines
 - Keep functions small and single-purpose.
-- All code must be strongly typed (no `dynamic` in Dart, use type hints in Python).
+- All code must be strongly typed and explicit in TypeScript.
 - Write brief documentation for complex functions.
 
 ## Frontend / React / TypeScript
@@ -13,12 +13,11 @@ This file defines the coding style conventions for both human and AI contributor
 - **Typing**: Use strict TypeScript types. Avoid `any` unless there is a strong reason.
 - **File Naming**: Use `PascalCase` for React component files, `kebab-case` for route/page files, and `camelCase` for utility modules.
 
-## Python 
-- **Formatting**: Use explicit formatters like `black` or `ruff`.
-- **Typing**: Use standard Python type hinting (`def get_user(user_id: int) -> User:`).
-- **File Naming**: Use `snake_case` for module names.
-
 ## JSON / NoSQL Data 
+- Database document keys should be `camelCase`.
+
+## Agent Instructions
+*AI Agents must output code that adheres strictly to these guidelines. Refactor code seamlessly to match this style.*
 - Database document keys should be `camelCase`.
 
 ## Agent Instructions

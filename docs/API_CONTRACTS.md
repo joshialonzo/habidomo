@@ -1,6 +1,6 @@
 # API Contracts
 
-This file defines the data contracts and schemas passed between the frontend, PostgreSQL database, and Python backend.
+This file defines the data contracts and schemas passed between the frontend, DynamoDB database, and AWS Lambda-backed API.
 
 ## Database Tables
 
@@ -16,7 +16,7 @@ This file defines the data contracts and schemas passed between the frontend, Po
 }
 ```
 
-## Python API Endpoints
+## Backend API Endpoints
 
 ### `GET /api/v1/health`
 **Response:**
@@ -27,4 +27,4 @@ This file defines the data contracts and schemas passed between the frontend, Po
 ```
 
 ## Agent Instructions
-*When adding a new database table or a new endpoint in Python, document the JSON shape and URLs here so the frontend can easily generate its models.*
+*When adding a new database table or a new endpoint, document the JSON shape and URLs here so the frontend and mobile apps can generate shared models.*
