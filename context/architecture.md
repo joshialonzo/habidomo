@@ -4,33 +4,31 @@
 
 | Layer      | Technology                          | Role                                                                 |
 | ---------- | ----------------------------------- | -------------------------------------------------------------------- |
-| Framework  | React / Next.js + React Native      | User interface for web and mobile                                    |
-| Infra      | AWS CDK (TypeScript)                | Define and deploy infrastructure, API Gateway, Lambda, and database  |
-| API        | API Gateway + Lambda                | Request routing, business logic, authentication, and integrations    |
-| Database   | DynamoDB                            | Persistent serverless NoSQL storage for app data                   |
-| Shared     | TypeScript packages                 | Cross-platform models, API client, and reusable UI/helpers          |
+| Framework  | Flask + HTML/CSS/JavaScript         | Backend-driven web UI with vanilla JS static assets                  |
+| API        | Flask routes                        | Request routing, business logic, authentication, and integrations    |
+| Database   | PostgreSQL                          | Relational storage for app data                                     |
+| Shared     | Python / JavaScript modules         | Shared models and utilities between backend and frontend            |
 
 ## System Boundaries
 
-- `/apps/web` — Web client UI owned by the React / Next.js application.
-- `/apps/mobile` — Mobile client UI owned by the React Native application.
-- `/infra` — CDK stacks, Lambda handlers, and infrastructure provisioning.
-- `/packages` — Shared cross-platform types, API client code, and UI utilities.
+- The Flask backend owns the web UI and API.
+- `/docs` contains documentation and system design artifacts.
+- `/scripts` contains automation utilities.
 
 ## Storage Model
 
-- **NoSQL Database:** DynamoDB stores sections, houses, neighbors, payments, expenses, and users.
-- **Blob/File Storage:** Receipt images or attachments may be stored in S3 and referenced from the DynamoDB model.
+- **Relational Database:** PostgreSQL stores sections, houses, neighbors, payments, expenses, and users.
+- **Blob/File Storage:** Receipt images or attachments may be stored on disk or in external blob storage as needed.
 
 ## Auth and Access Model
 
-- Authentication is managed through the API layer. The stack can use JWT tokens, Cognito, or a similar AWS-compatible auth flow.
+- Authentication is managed through the Flask backend.
 - Each user is identified by a phone number and a role.
-- Access control is enforced by the Lambda API layer and database relationships.
+- Access control is enforced by the Flask backend and database relationships.
 
 ## Invariants
 
-1. Request handlers should remain stateless and offload persistence to the database.
-2. Infrastructure definitions are owned by `/infra` and must be deployable via CDK.
-3. Shared business models live in `/packages` to avoid duplication across web and mobile.
-4. Frontend applications do not directly access the database; all data access goes through the API layer.
+1. Business logic should remain in the backend and persist state in PostgreSQL.
+2. The Flask application owns request handling and frontend delivery.
+3. Shared models live in common modules to avoid duplication across UI and backend.
+4. The browser-facing UI does not access the database directly; all data access goes through Flask routes.

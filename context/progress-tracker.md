@@ -9,11 +9,11 @@ change.
 
 ## Current Goal
 
-- Transition documentation and architecture references from the previous Flutter/Firebase and Flask/PostgreSQL plans to the new AWS CDK / React / React Native stack.
+- Transition documentation and architecture references to the Flask / PostgreSQL stack with vanilla JavaScript frontend assets.
 
 ## Completed
 
-- Updated `README.md`, `docs/ARCHITECTURE.md`, `docs/TECH_STACK.md`, `docs/API_CONTRACTS.md`, and feature docs to reflect the AWS CDK / React / React Native architecture.
+- Updated `README.md`, `docs/ARCHITECTURE.md`, `docs/TECH_STACK.md`, `docs/API_CONTRACTS.md`, and feature docs to reflect the Flask / PostgreSQL architecture.
 
 ## In Progress
 
@@ -21,7 +21,7 @@ change.
 
 ## Next Up
 
-- Scaffold the `/infra`, `/apps/web`, and `/apps/mobile` workspaces and wire shared models.
+- Scaffold the Flask backend, PostgreSQL schema, and static frontend assets.
 
 ## Open Questions
 

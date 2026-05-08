@@ -3,15 +3,15 @@
 This file is a living document intended for agentic workflows (vibe-coding). When you assign a task to the AI, reference the items in this list.
 
 ## Phase 1: Scaffolding (In Progress)
-- [x] Create project subdirectories (`apps/web`, `apps/mobile`, `infra`, `docs`, `scripts`)
-- [x] Scaffold React / Next.js web app
-- [x] Scaffold React Native mobile app
+- [x] Create project subdirectories (`docs`, `scripts`)
+- [ ] Scaffold Flask backend with static HTML/CSS/JS frontend assets
+- [ ] Define PostgreSQL schema and database migrations
 - [x] Create agent Markdown context files
 
-## Phase 2: AWS Infrastructure
-- [ ] Initialize AWS CDK project in `/infra`
-- [ ] Define Lambda functions and API Gateway endpoints
-- [ ] Provision DynamoDB tables with CDK
+## Phase 2: Backend and Persistence
+- [ ] Implement Flask route handlers and API endpoints
+- [ ] Configure PostgreSQL connectivity and migrations
+- [ ] Add frontend form pages and client-side behavior in vanilla JS
 
 ## Phase 3: Core App Features
 - [ ] Set up shared API client and cross-platform models

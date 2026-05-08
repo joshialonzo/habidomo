@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Core Financial)
-- **Frontend Target**: React / Next.js (`/apps/web`) + React Native (`/apps/mobile`)
-- **Backend Target**: AWS CDK / Lambda / DynamoDB (`/infra`)
+- **Frontend Target**: Vanilla JS and Flask-rendered templates
+- **Backend Target**: Flask backend with PostgreSQL
 
 ## Overview
 An **Expense** records money spent by the condominium administration. Expenses are tagged to a specific **month/year** period and categorized for reporting clarity.

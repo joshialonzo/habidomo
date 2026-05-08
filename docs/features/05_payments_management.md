@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Core Financial)
-- **Frontend Target**: React / Next.js (`/apps/web`) + React Native (`/apps/mobile`)
-- **Backend Target**: AWS CDK / Lambda / DynamoDB (`/infra`)
+- **Frontend Target**: Vanilla JS and Flask-rendered templates
+- **Backend Target**: Flask backend with PostgreSQL
 
 ## Overview
 A **Payment** records money received from a neighbor for their condominium dues. Payments are associated with both a **neighbor** and a **house**, and are tagged to a specific **month/year** period.

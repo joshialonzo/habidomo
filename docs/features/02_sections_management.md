@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Data Foundation)
-- **Frontend Target**: React / Next.js (`/apps/web`) + React Native (`/apps/mobile`)
-- **Backend Target**: AWS CDK / Lambda / DynamoDB (`/infra`)
+- **Frontend Target**: Vanilla JS and Flask-rendered templates
+- **Backend Target**: Flask backend with PostgreSQL
 
 ## Overview
 A **Section** is a logical grouping of houses — typically a street or a cluster of streets within the condominium. Sections are the top-level organizational unit.

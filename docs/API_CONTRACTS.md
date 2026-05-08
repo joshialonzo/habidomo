@@ -1,6 +1,6 @@
 # API Contracts
 
-This file defines the data contracts and schemas passed between the frontend, DynamoDB database, and AWS Lambda-backed API.
+This file defines the data contracts and schemas passed between the frontend, PostgreSQL database, and Flask-backed API.
 
 ## Database Tables
 

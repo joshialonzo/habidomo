@@ -4,19 +4,16 @@ Manager for a Condominio.
 
 ## Folder Structure
 
-This repository is organized to support separate apps, shared packages, and AWS infrastructure:
+This repository is organized to support a Flask backend, vanilla JavaScript frontend assets, and documentation:
 
-- **/apps/web/**: The React / Next.js web application.
-- **/apps/mobile/**: The React Native mobile application.
-- **/infra/**: AWS CDK infrastructure and Lambda code.
+- **Backend:** Flask application that serves HTML, CSS, and vanilla JS from static assets.
+- **/infra/**: Infrastructure and deployment helpers.
 - **/docs/**: Markdown documentation for project parameters, keeping developers and AI coding agents aligned.
 - **/scripts/**: Utility scripts for local development and deployment automation.
 
 ## Running the Environments
 
-For instructions on how to run, build, and deploy specific parts of the stack, see the dedicated README inside the infra folder. Frontend setup documentation will be added once the web and mobile apps are scaffolded.
-
-- 🏗️ [**Infra / AWS CDK Instructions**](./infra/README.md)
+For instructions on how to run, build, and deploy the application, see the documentation in `docs/` and the Flask backend guide once the backend scaffold is available.
 
 ## Documentation
 
@@ -25,7 +22,7 @@ Project-level documentation lives in the [`docs/`](./docs/) directory:
 - 📋 [**PRD (Product Requirements)**](./docs/PRD.md) — What we are building, target audience, roles, and feature index.
 - 🏗️ [**Architecture**](./docs/ARCHITECTURE.md) — How the frontend, backend, and database connect.
 - 🧰 [**Tech Stack**](./docs/TECH_STACK.md) — Approved frameworks, libraries, and versions.
-- 🎨 [**Style Guide**](./docs/STYLE_GUIDE.md) — Coding conventions for TypeScript and React.
+- 🎨 [**Style Guide**](./docs/STYLE_GUIDE.md) — Coding conventions for Flask and vanilla JavaScript.
 - 🔌 [**API Contracts**](./docs/API_CONTRACTS.md) — Database schemas and backend endpoint definitions.
 
 ### Feature Specs

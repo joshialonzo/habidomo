@@ -3,22 +3,21 @@
 This document strictly defines the libraries, frameworks, and versions to be used in this project. **AI Agents: Do not deviate from this stack, use alternative libraries, or introduce new major dependencies without asking the user for confirmation.**
 
 ## Frontend
-- **Language:** TypeScript
-- **Web Framework:** React / Next.js (`/apps/web`)
-- **Mobile Framework:** React Native (`/apps/mobile`)
-- **UI / Styling:** [Tailwind CSS, Material UI, or CSS Modules - Please specify]
-- **State Management:** [React Context, Zustand, Redux, React Query - Please specify]
-- **Data Fetching:** `fetch`, `axios`, or `swr`
-- **Routing:** Next.js built-in routing for web; React Navigation for mobile
+- **Language:** HTML, CSS, JavaScript
+- **Framework:** vanilla JavaScript and Flask-rendered templates
+- **UI / Styling:** Plain CSS, utility CSS, or lightweight CSS framework if needed
+- **State Management:** Browser state and DOM updates via vanilla JavaScript
+- **Data Fetching:** `fetch`
+- **Routing:** Flask route endpoints with optional client-side navigation for dynamic behavior
 
-## Infrastructure (`/infra`)
-- **Language:** TypeScript
-- **Framework:** AWS CDK
-- **Compute:** AWS Lambda
-- **API:** API Gateway
-- **Database:** DynamoDB (serverless NoSQL) managed by CDK
-- **Authentication:** JWT, Cognito, or OIDC as defined in CDK
-- **Package Manager:** `pnpm`, `npm`, or `yarn`
+## Backend
+- **Language:** Python 3.10+
+- **Framework:** Flask
+- **Database:** PostgreSQL
+- **ORM / DB Layer:** SQLAlchemy, `psycopg`, or equivalent
+- **Authentication:** Flask session cookies or JWT depending on requirements
+- **Package Manager:** `pip`, `venv`, or `pipenv`
+- **Deployment:** WSGI-compatible host, Docker optional
 
 ## Agent Instructions
-*Before importing a package to the frontend or infra workspace, verify if there is an existing library listed here that solves the problem. If not, add your new dependency to this file as well.*
+*Before importing a package, verify if the required functionality can be achieved with Flask, vanilla JavaScript, or standard PostgreSQL tooling. Document new dependencies here when added.*

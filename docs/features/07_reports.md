@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🟠 High
-- **Frontend Target**: React / Next.js (`/apps/web`) + React Native (`/apps/mobile`)
-- **Backend Target**: AWS CDK / Lambda / DynamoDB (`/infra`) — Google Sheets export and WhatsApp bot handled by Lambda or managed services.
+- **Frontend Target**: Vanilla JS and Flask-rendered templates
+- **Backend Target**: Flask backend with PostgreSQL — Google Sheets export and WhatsApp bot handled by Flask or managed services.
 
 ## Overview
 Reports aggregate payment and expense data into summaries that administrators can **view in-app**, **copy as formatted text to paste into WhatsApp**, or **export to Google Sheets**. This is the primary accountability tool for the condominium.
@@ -60,8 +60,8 @@ Total gastado: $850 MXN
 
 ## Technical Notes
 - **Clipboard**: Use the browser clipboard API (`navigator.clipboard.writeText()`) to copy the formatted string.
-- **Google Sheets**: Use the Google Sheets API via Lambda functions or managed integration services. The admin provides a sheet ID, and the backend writes the report data as rows.
-- **WhatsApp Bot**: Future feature using the WhatsApp Business API or a Twilio integration in Lambda or a serverless workflow.
+- **Google Sheets**: Use the Google Sheets API via the Flask backend or managed integration services. The admin provides a sheet ID, and the backend writes the report data as rows.
+- **WhatsApp Bot**: Future feature using the WhatsApp Business API or a Twilio integration in the Flask backend or a hosted workflow.
 
 ## Access Control
 | Role | View | Copy to Clipboard | Export to Sheets |
