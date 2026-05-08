@@ -38,7 +38,7 @@ The executive summary combining 7a and 7b.
 
 ## Clipboard Format Example (WhatsApp)
 ```
-📊 *Real de Dzityá — Reporte Abril 2026*
+📊 *Habidomo — Reporte Abril 2026*
 
 💰 *Ingresos*
 ✅ Lote 14 - Juan Pérez: $500 MXN (transferencia)

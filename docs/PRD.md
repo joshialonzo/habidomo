@@ -1,9 +1,9 @@
 # Product Requirements Document (PRD)
 
 ## App Overview
-**Name**: Real de Dzityá  
+**Name**: Habidomo  
 **Platforms**: Web (responsive across desktop and mobile)  
-**Description**: A condominium management app for the Real de Dzityá residential community. It enables administrators to manage sections, houses, neighbors, payments, and expenses — and to generate financial reports that can be shared instantly via WhatsApp or exported to Google Sheets.
+**Description**: A condominium management app. It enables administrators to manage sections, houses, neighbors, payments, and expenses — and to generate financial reports that can be shared instantly via WhatsApp or exported to Google Sheets.
 
 ## Target Audience
 - **Condominium Administrators**: Primary users. Manage all data and operations.

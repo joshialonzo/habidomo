@@ -1,6 +1,6 @@
-# Real de Dzityá
+# Habidomo
 
-Manager for the Real de Dzityá Condominio.
+Manager for a Condominio.
 
 ## Folder Structure
 
