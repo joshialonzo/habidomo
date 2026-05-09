@@ -7,7 +7,6 @@ Manager for a Condominio.
 This repository is organized to support a Flask backend, vanilla JavaScript frontend assets, and documentation:
 
 - **Backend:** Flask application that serves HTML, CSS, and vanilla JS from static assets.
-- **/infra/**: Infrastructure and deployment helpers.
 - **/docs/**: Markdown documentation for project parameters, keeping developers and AI coding agents aligned.
 - **/scripts/**: Utility scripts for local development and deployment automation.
 
