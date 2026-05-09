@@ -4,34 +4,36 @@ Manager for a Condominio.
 
 ## Folder Structure
 
-This repository is organized to support a Flask backend, vanilla JavaScript frontend assets, and documentation:
+This repository is organized with a CLI frontend, shared backend logic, and local database storage:
 
-- **Backend:** Flask application that serves HTML, CSS, and vanilla JS from static assets.
-- **/docs/**: Markdown documentation for project parameters, keeping developers and AI coding agents aligned.
-- **/scripts/**: Utility scripts for local development and deployment automation.
+- **`cli/`**: CLI application for user interaction; entry point for all user-facing commands.
+- **`shared/`**: Backend business logic, data models, and utilities; implements core functionality.
+- **`local/`**: Database storage; CSV files containing application data.
+- **`context/`**: Project guidance, architecture, feature specs, and workflow rules.
+- **`scripts/`**: Utility scripts for local development and automation.
 
-## Running the Environments
+## Running the Application
 
-For instructions on how to run, build, and deploy the application, see the documentation in `docs/` and the Flask backend guide once the backend scaffold is available.
+For instructions on how to run, build, and deploy the application, see the documentation in `context/` and the CLI setup guide once the application is scaffolded.
 
 ## Documentation
 
-Project-level documentation lives in the [`docs/`](./docs/) directory:
+Project-level documentation lives in the [`context/`](./context/) directory:
 
-- 📋 [**PRD (Product Requirements)**](./docs/PRD.md) — What we are building, target audience, roles, and feature index.
-- 🏗️ [**Architecture**](./docs/ARCHITECTURE.md) — How the frontend, backend, and database connect.
-- 🧰 [**Tech Stack**](./docs/TECH_STACK.md) — Approved frameworks, libraries, and versions.
-- 🎨 [**Style Guide**](./docs/STYLE_GUIDE.md) — Coding conventions for Flask and vanilla JavaScript.
-- 🔌 [**API Contracts**](./docs/API_CONTRACTS.md) — Database schemas and backend endpoint definitions.
+- 📋 [**PRD**](./context/project-overview.md) — What we are building, target audience, roles, and feature index.
+- 🏗️ [**Architecture**](./context/architecture.md) — How the frontend, backend, and database connect.
+- 🧰 [**Tech Stack**](./context/tech-stack.md) — Approved frameworks, libraries, and versions.
+- 🎨 [**Style Guide**](./context/style-guide.md) — Coding conventions for CLI and Python.
+- 🔌 [**Data Model**](./context/data-model.md) — CSV schemas and data model definitions.
 
 ### Feature Specs
 
-Individual feature requirements are in [`docs/features/`](./docs/features/):
+Individual feature requirements are in [`context/features/`](./context/features/):
 
-- 🔐 [Authentication](./docs/features/01_authentication.md)
-- 🏘️ [Sections Management](./docs/features/02_sections_management.md)
-- 🏠 [Houses Management](./docs/features/03_houses_management.md)
-- 👤 [Neighbors Management](./docs/features/04_neighbors_management.md)
-- 💰 [Payments Management](./docs/features/05_payments_management.md)
-- 💸 [Expenses Management](./docs/features/06_expenses_management.md)
-- 📊 [Financial Reports](./docs/features/07_reports.md)
+- 🔐 [Authentication](./context/features/01_authentication.md)
+- 🏘️ [Sections Management](./context/features/02_sections_management.md)
+- 🏠 [Houses Management](./context/features/03_houses_management.md)
+- 👤 [Neighbors Management](./context/features/04_neighbors_management.md)
+- 💰 [Payments Management](./context/features/05_payments_management.md)
+- 💸 [Expenses Management](./context/features/06_expenses_management.md)
+- 📊 [Financial Reports](./context/features/07_reports.md)

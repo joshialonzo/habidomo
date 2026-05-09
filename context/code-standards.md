@@ -2,52 +2,60 @@
 
 ## General
 
-- [Principle — e.g. Keep modules small and single-purpose]
-- [Principle — e.g. Fix root causes, do not layer workarounds]
-- [Principle — e.g. Do not mix unrelated concerns in one
-  component or route]
+- Keep modules small and single-purpose; separate CLI concerns from backend logic
+- Fix root causes, do not layer workarounds; especially important in CSV-based data operations
+- Do not mix unrelated concerns in one module (CLI layer, business logic, data access)
+- All data access must go through the `shared/` backend; the CLI does not directly touch files
 
-## TypeScript
+## Python
 
-- [Rule — e.g. Strict mode is required throughout the project]
-- [Rule — e.g. Avoid any — use explicit interfaces or narrowly
-  scoped types]
-- [Rule — e.g. Validate unknown external input at system
-  boundaries before trusting it]
+- Use type hints throughout the project for clarity and IDE support
+- Validate input at system boundaries (CLI input and file reading) before processing
+- Use descriptive variable and function names; avoid abbreviations except standard conventions
+- Keep functions focused on a single responsibility
+- Use pathlib for file operations instead of os.path
 
-## [Framework — e.g. Next.js]
+## CLI Application (`cli/`)
 
-- [Convention — e.g. Default to server components]
-- [Convention — e.g. Add use client only when browser
-  interactivity requires it]
-- [Convention — e.g. Keep route handlers focused on a
-  single responsibility]
+- Use Click or similar framework for command structure and argument parsing
+- Each command should be a thin wrapper that calls `shared/` backend functions
+- Perform input validation and formatting in CLI layer
+- Return clear, user-friendly output messages
+- Handle errors gracefully with helpful error messages
+- Commands map 1:1 to feature workflows defined in `context/features/`
 
-## Styling
+## Shared Backend (`shared/`)
 
-- [Rule — e.g. Use CSS custom property tokens — no
-  hardcoded hex values]
-- [Rule — e.g. Follow the border radius scale defined
-  in ui-context.md]
+- Contains all business logic, data models, and utilities
+- No direct file I/O; use data access layer for persistence
+- Implement validation and business rules in backend modules
+- Keep functions pure when possible (no side effects)
+- Provide clear interfaces that CLI can easily consume
+- Include unit tests for all critical business logic
 
-## API Routes
+## Data and Storage (`local/`)
 
-- [Rule — e.g. Validate and parse request input before
-  any logic runs]
-- [Rule — e.g. Enforce auth and ownership before any mutation]
-- [Rule — e.g. Return consistent, predictable response shapes]
-
-## Data and Storage
-
-- [Rule — e.g. Metadata belongs in the database]
-- [Rule — e.g. Large generated content belongs in file
-  or blob storage]
-- [Rule — e.g. Do not store large content directly in
-  the database]
+- CSV files are the single source of truth for persisted data
+- Each entity type (sections, houses, neighbors, etc.) gets its own CSV file
+- CSV headers must match the data model defined in `shared/`
+- Maintain referential integrity through careful application logic
+- Do not expose file paths to the CLI layer; all access goes through `shared/`
+- Implement atomic operations and transaction-like behavior where needed
 
 ## File Organization
 
-- `[folder]/` — [What belongs here]
-- `[folder]/` — [What belongs here]
-- `[folder]/` — [What belongs here]
-- `[folder]/` — [What belongs here]s
+- **`cli/`** — CLI commands, organized by feature/entity
+- **`shared/`** — Data models, business logic, data access layer
+- **`shared/models/`** — Data classes and model definitions
+- **`shared/services/`** — Business logic and operations
+- **`shared/database/`** — Data access layer for CSV operations
+- **`local/`** — CSV database files (do not edit directly)
+- **`context/`** — Feature specifications and API contracts
+- **`scripts/`** — Automation and development utilities
+
+## Testing
+
+- Write unit tests for business logic in `shared/`
+- Test data access layer independently of CLI
+- Mock file I/O in tests when appropriate
+- Use descriptive test names that explain the scenario and expected outcome
