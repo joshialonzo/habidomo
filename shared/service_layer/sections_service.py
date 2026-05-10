@@ -32,17 +32,15 @@ class SectionsService:
 
         changed = False
 
-        if name is not None:
-            # Check uniqueness if name is changing
-            if name != section.name:
-                existing_sections = self.repository.list()
-                if any(s.name == name for s in existing_sections):
-                    msg = f"Section with name '{name}' already exists"
-                    raise ValueError(msg)
+        if name is not None and name != section.name:
+            existing_sections = self.repository.list()
+            if any(s.name == name for s in existing_sections):
+                msg = f"Section with name '{name}' already exists"
+                raise ValueError(msg)
             section.name = name
             changed = True
 
-        if description is not None:
+        if description is not None and description != section.description:
             section.description = description
             changed = True
 
