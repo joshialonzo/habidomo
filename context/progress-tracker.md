@@ -34,11 +34,11 @@ Update this file after every meaningful implementation change.
 
 ## Next Up
 
-1. Implement Houses Management CRUD with same patterns
-2. Add CSV persistence layer for data storage
-3. Expand test coverage to new features
-4. Implement authentication system
-5. Add integration tests for CLI workflows
+1. Add CSV persistence layer for data storage
+2. Add integration tests for CLI workflows
+3. Implement Houses Management CRUD with same patterns
+4. Expand test coverage to new features
+5. Implement authentication system
 
 ## Open Questions
 
