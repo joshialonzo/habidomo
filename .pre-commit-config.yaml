@@ -18,3 +18,4 @@ repos:
     rev: v1.1.350
     hooks:
       - id: pyright
+        exclude: ^tests/
