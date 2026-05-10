@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
-# ruff: noqa: E402
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 
-import click
+import click  # noqa: E402
 
-from shared.repositories.sections_repository import (
+from shared.repositories.sections_repository import (  # noqa: E402
     InMemorySectionsRepository,
 )
-from shared.service_layer.sections_service import SectionsService
+from shared.service_layer.sections_service import SectionsService  # noqa: E402
 
 # Dependency injection: create repository and service
 repository = InMemorySectionsRepository()
@@ -37,7 +36,7 @@ def create(name: str, description: str | None):
         section = service.create_section(name, description)
         click.echo(f"✓ Section created: {section.name} (ID: {section.section_id})")
     except ValueError as e:
-        click.echo(f"✗ Error: {e}", err=True)
+        raise click.ClickException(str(e)) from e
 
 
 @sections.command()
@@ -65,17 +64,16 @@ def list_sections():
 def update(section_id: str, name: str | None, description: str | None):
     """Update a section"""
     if name is None and description is None:
-        click.echo("✗ Error: Must provide --name or --description to update", err=True)
-        return
+        raise click.UsageError("Must provide --name or --description to update")  # noqa: EM101, TRY003
 
     try:
         section = service.update_section(section_id, name, description)
         if section:
             click.echo(f"✓ Section updated: {section.name}")
         else:
-            click.echo(f"✗ Error: Section with ID {section_id} not found", err=True)
+            raise click.ClickException(f"Section with ID {section_id} not found")  # noqa: EM102, TRY003
     except ValueError as e:
-        click.echo(f"✗ Error: {e}", err=True)
+        raise click.ClickException(str(e)) from e
 
 
 @sections.command()
@@ -85,7 +83,7 @@ def delete(section_id: str):
     if service.delete_section(section_id):
         click.echo("✓ Section deleted")
     else:
-        click.echo(f"✗ Error: Section with ID {section_id} not found", err=True)
+        raise click.ClickException(f"Section with ID {section_id} not found")  # noqa: EM102, TRY003
 
 
 if __name__ == "__main__":
