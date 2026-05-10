@@ -1,5 +1,6 @@
 # pyright: reportUnknownVariableType=false
 from datetime import datetime
+from typing import Any
 from uuid import uuid4
 
 from pydantic import (  # pyright: ignore[reportUnknownVariableType]
@@ -17,14 +18,18 @@ class Section(BaseModel):
     created_at: datetime = Field(default_factory=datetime.now)
     updated_at: datetime = Field(default_factory=datetime.now)
 
-    @model_validator(mode="after")
-    def set_timestamps(self):
-        # Ensure created_at and updated_at are the same initially
-        if self.created_at == self.updated_at:
+    @model_validator(mode="before")
+    @classmethod
+    def set_timestamps(cls, data: Any) -> Any:  # pyright: ignore[reportUnknownParameterType]
+        if (
+            isinstance(data, dict)
+            and data.get("created_at") is None  # pyright: ignore[reportUnknownMemberType]
+            and data.get("updated_at") is None  # pyright: ignore[reportUnknownMemberType]
+        ):
             now = datetime.now()
-            self.created_at = now
-            self.updated_at = now
-        return self
+            data["created_at"] = now
+            data["updated_at"] = now
+        return data
 
     @field_validator("name")
     @classmethod
