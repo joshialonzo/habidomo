@@ -19,8 +19,8 @@ Update this file after every meaningful implementation change.
 - Created context/data-model.md to document data structures and CSV schemas
 - Updated context/ui-context.md for CLI output formatting (no longer web UI focused)
 - Implemented Sections CRUD operations in CLI with in-memory storage
-- Created shared/models.py with Section dataclass
-- Created shared/services/sections_service.py with business logic
+- Created shared/models.py with Section Pydantic model
+- Created shared/service_layer/sections_service.py with business logic
 - Created cli/app.py with Click-based CLI interface
 - Added requirements.txt for dependencies
 - Refactored to Cosmic Python patterns: Repository, Service Layer, Dependency Injection
