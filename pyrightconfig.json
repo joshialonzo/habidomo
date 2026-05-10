@@ -11,5 +11,6 @@
   "reportUnusedFunction": true,
   "reportUnusedVariable": true,
   "reportDuplicateImport": true,
-  "extraPaths": ["venv/lib/python3.13/site-packages"]
+  "venvPath": ".",
+  "venv": "venv"
 }
