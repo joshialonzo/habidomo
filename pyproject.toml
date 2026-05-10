@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "habidomo"
+version = "0.1.0"
+description = "Condominium Management CLI"
+dependencies = [
+    "click",
+    "pydantic",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "A", "C4", "T10", "DJ", "EM", "ICN", "G", "INP", "PIE", "T20", "PYI", "PT", "Q", "RSE", "RET", "SLF", "SLOT", "SIM", "TID", "TCH", "INT", "ARG", "PTH", "ERA", "PD", "PGH", "PL", "TRY", "FLY", "NPY", "AIR", "PERF", "FURB", "LOG", "RUF"]
+ignore = ["E501", "E741", "F403", "F405"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["shared"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "--cov=shared --cov-report=html --cov-report=term --cov-fail-under=100"
+
+[tool.coverage.run]
+source = ["shared"]
+omit = ["*/tests/*", "*/test_*", "shared/repositories/abstract_repository.py"]

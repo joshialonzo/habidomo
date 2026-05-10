@@ -1,0 +1,15 @@
+{
+  "include": ["cli", "shared"],
+  "exclude": ["__pycache__", "local"],
+  "pythonVersion": "3.13",
+  "typeCheckingMode": "strict",
+  "reportMissingImports": true,
+  "reportMissingTypeStubs": false,
+  "reportImportCycles": true,
+  "reportUnusedImport": true,
+  "reportUnusedClass": true,
+  "reportUnusedFunction": true,
+  "reportUnusedVariable": true,
+  "reportDuplicateImport": true,
+  "extraPaths": ["venv/lib/python3.13/site-packages"]
+}
