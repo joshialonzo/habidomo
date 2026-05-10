@@ -189,7 +189,7 @@ PLR2004 Magic value used in comparison, consider replacing `2` with a constant v
    - Update a section: `python cli/app.py sections update <section_id> --name "New Name"`
    - Delete a section: `python cli/app.py sections delete <section_id>`
 
-Note: Since data is stored in memory, sections are not persisted between CLI invocations. For testing CRUD operations, run create and other commands in sequence within the same terminal session if possible, or use the section ID from create output.
+Note: Since data is stored in memory, sections are not persisted between separate CLI invocations (`python cli/app.py ...`). End-to-end CRUD verification requires a single long-running process/test harness or a persistent storage backend.
 
 4. **Run unit tests:**
    ```bash
