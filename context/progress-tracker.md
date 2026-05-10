@@ -54,9 +54,9 @@ Update this file after every meaningful implementation change.
 - **Decision:** Separate concerns into `cli/`, `shared/`, and `local/` folders.
   - **Rationale:** Clear boundaries between user interface, business logic, and data storage; makes testing and maintenance easier.
 - **Decision:** Consolidate documentation into `context/` only.
+  - **Rationale:** `context/` is the single source of truth for AI workflow, implementation guidance, and feature specs.
 - **Decision:** Use Click framework for CLI commands.
   - **Rationale:** Provides clean command structure, argument parsing, and help generation; widely used in Python CLI tools.
-  - **Rationale:** `context/` is the single source of truth for AI workflow, implementation guidance, and feature specs.
 
 ## Session Notes
 
