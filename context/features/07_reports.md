@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🟠 High
-- **Frontend Target**: Vanilla JS and Flask-rendered templates
-- **Backend Target**: Flask backend with PostgreSQL — Google Sheets export and WhatsApp bot handled by Flask or managed services.
+ - **Frontend Target**: Flutter (Dart) — Flutter web and mobile UI
+- **Backend Target**: Serverpod backend with PostgreSQL — Google Sheets export and WhatsApp bot handled by the Dart backend or managed services.
 
 ## Overview
 Reports aggregate payment and expense data into summaries that administrators can **view in-app**, **copy as formatted text to paste into WhatsApp**, or **export to Google Sheets**. This is the primary accountability tool for the condominium.
@@ -59,9 +59,9 @@ Total gastado: $850 MXN
 ```
 
 ## Technical Notes
-- **Clipboard**: Use the browser clipboard API (`navigator.clipboard.writeText()`) to copy the formatted string.
-- **Google Sheets**: Use the Google Sheets API via the Flask backend or managed integration services. The admin provides a sheet ID, and the backend writes the report data as rows.
-- **WhatsApp Bot**: Future feature using the WhatsApp Business API or a Twilio integration in the Flask backend or a hosted workflow.
+ - **Clipboard**: Use Flutter/platform clipboard APIs (e.g., `Clipboard.setData`) or platform-specific packages to copy the formatted string on web and mobile.
+ - **Google Sheets**: Use the Google Sheets API via the Dart backend or managed integration services. The admin provides a sheet ID, and the backend writes the report data as rows.
+ - **WhatsApp Bot**: Future feature using the WhatsApp Business API or a Twilio integration in the Dart backend or a hosted workflow.
 
 ## Access Control
 | Role | View | Copy to Clipboard | Export to Sheets |

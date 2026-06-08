@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Data Foundation)
-- **Frontend Target**: Vanilla JS and Flask-rendered templates
-- **Backend Target**: Flask backend with PostgreSQL
+- **Frontend Target**: Flutter (Dart) — Flutter web and mobile UI
+- **Backend Target**: Serverpod backend with PostgreSQL
 
 ## Overview
 A **House** represents a physical property (lot) within the condominium. Each house belongs to exactly one Section and can have one or more Neighbors associated with it.

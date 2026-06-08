@@ -65,3 +65,5 @@ Update this file after every meaningful implementation change.
 - Migrated documentation: `context/` now reflects CLI architecture and feature guidance
 - Created separate data-model.md in context/ for data structure reference
 - Next session should start with scaffolding the project structure
+- Refactored feature specs under `context/features/` to reference Flutter (Dart) for frontend and a Serverpod backend instead of Vanilla JS and Flask.
+- Current task: verify other context docs (architecture, ui-context) for remaining Flask/JS references and update them to Flutter/Dart as needed.

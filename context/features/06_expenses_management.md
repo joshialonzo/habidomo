@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Core Financial)
-- **Frontend Target**: Vanilla JS and Flask-rendered templates
-- **Backend Target**: Flask backend with PostgreSQL
+- **Frontend Target**: Flutter (Dart) — Flutter web and mobile UI
+- **Backend Target**: Serverpod backend with PostgreSQL
 
 ## Overview
 An **Expense** records money spent by the condominium administration. Expenses are tagged to a specific **month/year** period and categorized for reporting clarity.

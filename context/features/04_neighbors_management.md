@@ -3,8 +3,8 @@
 ## Status
 - **Current State**: Planned
 - **Priority**: 🔴 Critical (Data Foundation)
-- **Frontend Target**: Vanilla JS and Flask-rendered templates
-- **Backend Target**: Flask backend with PostgreSQL
+- **Frontend Target**: Flutter (Dart) — Flutter web and mobile UI
+- **Backend Target**: Serverpod backend with PostgreSQL
 
 ## Overview
 A **Neighbor** is a person associated with a house. Neighbors are identified by their **phone number** (which doubles as their login identity). A house can have multiple neighbors (e.g., spouses), and a neighbor could theoretically own multiple houses.
