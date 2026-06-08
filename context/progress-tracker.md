@@ -25,7 +25,7 @@ Update this file after every meaningful implementation change.
 - Added requirements.txt for dependencies
 - Refactored to Cosmic Python patterns: Repository, Service Layer, Dependency Injection
 - Replaced dataclasses with Pydantic models for validation
-- Implemented ruff (linting/formatting), pyright (type checking), pre-commit hooks
+- Implemented ruff (linting/formatting) and pyright (type checking)
 - Added comprehensive unit tests with 100% coverage for shared/ directory
 
 ## In Progress

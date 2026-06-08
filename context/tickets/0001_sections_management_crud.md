@@ -9,7 +9,7 @@ Implement a complete CRUD (Create, Read, Update, Delete) interface for managing 
 - **Storage**: In-memory storage for initial implementation
 - **CLI Interface**: Command-line commands using Click framework
 - **Architecture**: Follow Cosmic Python patterns (Repository, Service Layer, Dependency Injection)
-- **Code Quality**: Implement ruff (linting/formatting), pyright (type checking), pre-commit hooks
+- **Code Quality**: Implement ruff (linting/formatting) and pyright (type checking)
 - **Validation**: Pydantic models with business rule validation
 
 ### Acceptance Criteria
@@ -18,7 +18,7 @@ Implement a complete CRUD (Create, Read, Update, Delete) interface for managing 
 - [x] Service layer for business logic
 - [x] CLI commands: create, list-sections, update, delete
 - [x] Unique name constraint enforcement
-- [x] Code quality tools configured (ruff, pyright, pre-commit)
+- [x] Code quality tools configured (ruff, pyright)
 - [x] Local testing instructions documented
 - [x] Unit tests with 100% coverage implemented
 - [x] All code passes linting and type checking
@@ -76,7 +76,7 @@ Service factory creates consistent service instances with proper dependency inje
 - **Repository**: `shared/repositories/` - Abstract and in-memory implementations
 - **Service**: `shared/service_layer/` - Business logic with dependency injection
 - **CLI**: `cli/app.py` - Click commands with service integration
-- **Tools**: `pyproject.toml`, `pyrightconfig.json`, `.pre-commit-config.yaml`
+- **Tools**: `pyproject.toml`, `pyrightconfig.json`
 
 ## Prompts
 
@@ -92,7 +92,7 @@ Save this prompt in the corresponding ticket.
 ### Prompt 2
 
 Follow these instructions:
-* Implement ruff (flake8, isort, black), pyright, pre-commit, and pydantic in the project.
+* Implement ruff (flake8, isort, black), pyright, and pydantic in the project.
 * Refactor the current feature using the design patterns we have in the "cosmic python" book.
 * Write the instructions to test locally in the current MD ticket. Append a new section.
 
@@ -170,8 +170,6 @@ PLR2004 Magic value used in comparison, consider replacing `2` with a constant v
 1. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
-   pip install pre-commit
-   pre-commit install
    ```
 
 2. **Run code quality checks:**
@@ -211,8 +209,7 @@ Note: Since data is stored in memory, sections are not persisted between separat
 2. **Install all dependencies:**
    ```bash
    pip install -r requirements.txt
-   pip install pre-commit ruff pyright
-   pre-commit install
+   pip install ruff pyright
    ```
 
 ### Command Reference
