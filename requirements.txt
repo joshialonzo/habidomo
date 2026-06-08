@@ -1,4 +1,0 @@
-click
-pydantic
-pytest
-pytest-cov
