@@ -78,6 +78,22 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+# Editor and OS artifacts
+.DS_Store
+*.class
+*.log
+*.pyc
+*.swp
+.atom/
+.buildlog/
+.history
+.svn/
+*.iml
+*.ipr
+*.iws
+.idea/
+# .vscode/
+
 # IPython
 profile_default/
 ipython_config.py
@@ -126,6 +142,15 @@ ipython_config.py
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
 __pypackages__/
+
+# Dart / Flutter / Serverpod
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub/
+.pub-cache/
+doc/api/
 
 # Celery stuff
 celerybeat-schedule

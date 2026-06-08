@@ -1,30 +1,41 @@
 # Tech Stack
 
-This document defines the libraries, frameworks, and versions for the CLI-based Habidomo application. **AI Agents: Do not deviate from this stack, use alternative libraries, or introduce new major dependencies without asking the user for confirmation.**
+This document defines the libraries, frameworks, and versions for the current Habidomo Serverpod/Flutter application. **AI Agents: Do not deviate from this stack, use alternative libraries, or introduce new major dependencies without asking the user for confirmation.**
 
 ## Runtime
-- **Language:** Python 3.10+
-- **Package Manager:** `pip` with `venv` or `pipenv`
+- **Language:** Dart 3.0+
+- **Framework:** Flutter for the frontend
+- **Backend:** Serverpod 3.4.x
+- **Package Manager:** `dart pub` / `flutter pub`
 
-## CLI Framework
-- **Primary:** Click or argparse (TBD — user to confirm)
-- **Purpose:** Command-line interface, argument parsing, help text generation
+## Frontend
+- **Primary:** Flutter for mobile, desktop, and web UI
+- **Client Integration:** `habidomo_client` generated Serverpod client package
+- **Purpose:** Build responsive user interfaces and consume typed API endpoints
 
-## Core Libraries
-- **Data Handling:** `pandas` or `csv` (standard library) for CSV operations
-- **Typing:** Built-in `typing` module for type hints
-- **Testing:** `pytest` for unit tests
-- **Validation:** `pydantic` (optional; for data validation)
+## Backend
+- **Primary:** Serverpod for API routing, authentication, and business logic
+- **Database:** PostgreSQL via Serverpod
+- **Purpose:** Host endpoints, implement authorization rules, and persist domain data
+
+## Generated Client
+- **Package:** `habidomo_client`
+- **Purpose:** Provide a shared typed Dart interface used by the Flutter app to call Serverpod endpoints
+
+## Testing
+- **Frontend tests:** `flutter test`
+- **Backend tests:** `dart test`
+- **Serverpod utilities:** `serverpod_test`
 
 ## Data Persistence
-- **Database:** CSV files in `local/` folder
-- **File Operations:** `pathlib` for cross-platform file handling
-- **Format:** Comma-separated values with headers; UTF-8 encoding
+- **Primary datastore:** PostgreSQL managed by Serverpod
+- **Sample data:** `local/` contains CSV fixture data and import samples
+- **Runtime access:** Always through Serverpod backend endpoints
 
-## Deployment
-- **Runtime:** Python interpreter
-- **Distribution:** Executable script or packaged CLI tool
-- **Dependencies:** Pinned in `requirements.txt` or `Pipfile`
+## Build & Deployment
+- Build Flutter app with `flutter build`
+- Run backend with Serverpod or `dart run bin/main.dart`
+- Keep dependencies pinned in subpackage manifests
 
 ## Agent Instructions
-*Before adding a dependency, verify it's necessary and confirm with user. Keep dependencies minimal—favor standard library where possible. Document all new packages in this file.*
+*Before adding a dependency, verify it's necessary and confirm with user. Keep dependencies minimal and document all new packages in this file.*

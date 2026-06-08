@@ -1,0 +1,44 @@
+services:
+  # Development services
+  postgres:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "8090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: habidomo
+      POSTGRES_PASSWORD: "tS6YJljxwZUNxNaQbiRoUM3TLub-zKrS"
+    volumes:
+      - habidomo_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6.2.6
+    ports:
+      - "8091:6379"
+    command: redis-server --requirepass "tWpZRqFZShYfjsgf6HTPj82ZXQHRpPND"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+  # Test services
+  postgres_test:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "9090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: habidomo_test
+      POSTGRES_PASSWORD: "MxLs-eKAPoCnaqIaramawL93STgzsCiu"
+    volumes:
+      - habidomo_test_data:/var/lib/postgresql/data
+
+  redis_test:
+    image: redis:6.2.6
+    ports:
+      - "9091:6379"
+    command: redis-server --requirepass "pvyHqbMC6oChHxVxN7tD9v-XPZZWN4wt"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+volumes:
+  habidomo_data:
+  habidomo_test_data:

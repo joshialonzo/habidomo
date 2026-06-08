@@ -2,60 +2,54 @@
 
 ## General
 
-- Keep modules small and single-purpose; separate CLI concerns from backend logic
-- Fix root causes, do not layer workarounds; especially important in CSV-based data operations
-- Do not mix unrelated concerns in one module (CLI layer, business logic, data access)
-- All data access must go through the `shared/` backend; the CLI does not directly touch files
+- Keep modules small and single-purpose; separate UI concerns from backend logic
+- Fix root causes, do not layer workarounds; especially important in data persistence and API design
+- Do not mix unrelated concerns in one module (UI layer, business logic, data access)
+- All persistent data access must go through the Serverpod backend in `habidomo_server/`
 
-## Python
+## Dart and Flutter
 
-- Use type hints throughout the project for clarity and IDE support
-- Validate input at system boundaries (CLI input and file reading) before processing
+- Use strong typing and null-safety throughout the codebase
+- Validate input at system boundaries (UI input and API request payloads) before processing
 - Use descriptive variable and function names; avoid abbreviations except standard conventions
-- Keep functions focused on a single responsibility
-- Use pathlib for file operations instead of os.path
+- Keep functions and widgets focused on a single responsibility
+- Use standard Dart and Flutter APIs for platform-aware operations
 
-## CLI Application (`cli/`)
+## Frontend Application (`habidomo_flutter/`)
 
-- Use Click or similar framework for command structure and argument parsing
-- Each command should be a thin wrapper that calls `shared/` backend functions
-- Perform input validation and formatting in CLI layer
-- Return clear, user-friendly output messages
-- Handle errors gracefully with helpful error messages
-- Commands map 1:1 to feature workflows defined in `context/features/`
+- Keep UI widgets thin and delegate business logic to backend services
+- Use `habidomo_client` for typed Serverpod API calls
+- Perform input validation and formatting in the UI layer before sending requests
+- Return clear, user-friendly messages and handle errors gracefully
+- Commands and screens should follow the feature workflows defined in `context/features/`
 
-## Shared Backend (`shared/`)
+## Backend Application (`habidomo_server/`)
 
-- Contains all business logic, data models, and utilities
-- No direct file I/O; use data access layer for persistence
+- Contains business logic, data models, Serverpod endpoints, and auth rules
+- No direct database access from frontend; all persistence goes through backend endpoints
 - Implement validation and business rules in backend modules
-- Keep functions pure when possible (no side effects)
-- Provide clear interfaces that CLI can easily consume
-- Include unit tests for all critical business logic
+- Keep endpoint handlers concise and delegate domain logic to service classes
+- Include unit and integration tests for all critical backend behavior
 
-## Data and Storage (`local/`)
+## Data and Storage
 
-- CSV files are the single source of truth for persisted data
-- Each entity type (sections, houses, neighbors, etc.) gets its own CSV file
-- CSV headers must match the data model defined in `shared/`
-- Maintain referential integrity through careful application logic
-- Do not expose file paths to the CLI layer; all access goes through `shared/`
-- Implement atomic operations and transaction-like behavior where needed
+- The Serverpod-managed database is the primary source of truth
+- Use `habidomo_server/` data models and migrations to evolve schema safely
+- Treat `local/` as sample or legacy CSV data, not production storage
+- Do not expose raw database access to the frontend
+- Implement transactional behavior through Serverpod when needed
 
 ## File Organization
 
-- **`cli/`** — CLI commands, organized by feature/entity
-- **`shared/`** — Data models, business logic, data access layer
-- **`shared/models/`** — Data classes and model definitions
-- **`shared/services/`** — Business logic and operations
-- **`shared/database/`** — Data access layer for CSV operations
-- **`local/`** — CSV database files (do not edit directly)
-- **`context/`** — Feature specifications and API contracts
-- **`scripts/`** — Automation and development utilities
+- **`habidomo_flutter/`** — Flutter frontend application and platform-specific runners
+- **`habidomo_server/`** — Serverpod backend server, endpoints, and configuration
+- **`habidomo_client/`** — Generated Serverpod client package for typed API access
+- **`local/`** — Sample CSV fixture data and legacy import files
+- **`context/`** — Documentation, feature specs, and architecture guidance
 
 ## Testing
 
-- Write unit tests for business logic in `shared/`
-- Test data access layer independently of CLI
-- Mock file I/O in tests when appropriate
+- Write unit tests for frontend state and backend logic
+- Use `flutter test` for UI tests and `dart test` for backend tests
 - Use descriptive test names that explain the scenario and expected outcome
+- Keep tests isolated from external services when possible

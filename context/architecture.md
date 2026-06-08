@@ -2,44 +2,45 @@
 
 ## Stack
 
-| Layer      | Technology                          | Role                                                                 |
-| ---------- | ----------------------------------- | -------------------------------------------------------------------- |
-| Frontend   | CLI Application (Python)            | Command-line interface for user interaction                          |
-| Backend    | Python modules in `shared/`         | Business logic, data models, and core functionality                 |
-| Database   | Local file-based storage in `local/`| CSV files and local data persistence                                |
-| Shared     | Python modules                      | Shared models and utilities between CLI and backend                 |
+| Layer        | Technology                             | Role                                                                 |
+| ------------ | -------------------------------------- | -------------------------------------------------------------------- |
+| Frontend     | Flutter app in `habidomo_flutter/`     | Cross-platform mobile, desktop, and web user interface               |
+| Backend      | Serverpod server in `habidomo_server/` | API endpoints, authentication, business logic, and persistence       |
+| Client       | `habidomo_client/`                     | Generated typed Dart client package used by the Flutter frontend     |
+| Data         | PostgreSQL via Serverpod               | Persistent relational storage for application entities              |
+| Documentation| `context/`                             | Architecture, feature specs, tech stack, and workflow guidance       |
 
 ## Directory Structure
 
-- **`cli/`** — CLI frontend application; user-facing command-line interface
-- **`shared/`** — Backend logic, business rules, data models, and utilities
-- **`local/`** — Database storage; CSV files and local data persistence
-- **`context/`** — Documentation and system design artifacts
-- **`scripts/`** — Automation utilities
+- **`habidomo_flutter/`** — Flutter frontend application and platform-specific runners
+- **`habidomo_server/`** — Serverpod backend server, endpoint definitions, and config
+- **`habidomo_client/`** — Generated Serverpod client package for typed server access
+- **`local/`** — Sample CSV fixture data and legacy import files
+- **`context/`** — Documentation and design artifacts
 
 ## System Boundaries
 
-- The CLI application (`cli/`) owns user interaction and request dispatch.
-- The `shared/` backend module owns all business logic and data operations.
-- The `local/` folder manages all data persistence (CSV files).
-- No data access happens directly in the CLI; all operations go through the `shared/` backend.
+- The Flutter application (`habidomo_flutter/`) owns user interaction and sends requests via the typed Serverpod client.
+- The Serverpod backend (`habidomo_server/`) owns business logic, authentication, authorization, and data persistence.
+- The generated client package (`habidomo_client/`) centralizes the typed interface between frontend and backend.
+- The `local/` folder is used for sample or legacy CSV data and is not the primary runtime datastore.
 
 ## Storage Model
 
-- **Local Database:** CSV files in `local/` store sections, houses, neighbors, payments, expenses, and users.
-- **File Format:** Structured CSV with headers matching the data model.
-- **Data Access:** All database operations are performed through the `shared/` backend module.
+- **Primary Database:** PostgreSQL managed by Serverpod.
+- **Data Access:** All persistent operations are routed through Serverpod endpoints in `habidomo_server/`.
+- **Sample Data:** `local/` contains CSV source data for import, analytics, or migration support.
 
 ## Auth and Access Model
 
-- Authentication is managed through the `shared/` backend.
-- Each user is identified by a phone number and a role.
-- Access control is enforced by the `shared/` backend logic and CSV relationships.
+- Authentication is handled by Serverpod and configured under `habidomo_server/config/`.
+- Each user is identified by credentials managed through the backend.
+- Access control is enforced by backend logic and Serverpod endpoint policies.
 
 ## Invariants
 
-1. Business logic must remain in the `shared/` backend; the CLI is only an interface.
-2. The CLI application does not directly access or modify data; all operations go through `shared/` modules.
-3. Shared data models live in `shared/` to avoid duplication between CLI and backend logic.
-4. The `local/` folder contains the single source of truth for all persisted data.
-5. CSV files must maintain referential integrity through careful application logic in `shared/`.
+1. Business logic must remain in `habidomo_server/` and not be duplicated in the frontend.
+2. The Flutter frontend does not directly access the database; it communicates through Serverpod APIs.
+3. The generated client package (`habidomo_client/`) provides a single typed interface for server communication.
+4. Legacy CSV data in `local/` is treated as sample or migration material, not production storage.
+5. Backend data models are authoritative and drive the API contract for the frontend.

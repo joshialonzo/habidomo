@@ -4,66 +4,48 @@ Update this file after every meaningful implementation change.
 
 ## Current Phase
 
-- Phase 1: Data Foundation - Sections CRUD (Completed)
+- Phase 1: Serverpod + Flutter architecture alignment
 
 ## Current Goal
 
-- Establish testing framework and code quality standards for the project
+- Align documentation and repository structure with the current Serverpod backend and Flutter frontend implementation
 
 ## Completed
 
-- Updated architecture context to reflect CLI-based application
-- Defined folder structure: `cli/` (frontend), `shared/` (backend), `local/` (database)
-- Established data model to use CSV files for persistence
+- Updated architecture context to reflect the Serverpod and Flutter application
+- Defined folder structure: `habidomo_flutter/` (frontend), `habidomo_server/` (backend), `habidomo_client/` (generated client)
 - Migrated documentation content into `context/`: architecture, tech stack, style guide, data model, and feature specs
-- Created context/data-model.md to document data structures and CSV schemas
-- Updated context/ui-context.md for CLI output formatting (no longer web UI focused)
-- Implemented Sections CRUD operations in CLI with in-memory storage
-- Created shared/models.py with Section Pydantic model
-- Created shared/service_layer/sections_service.py with business logic
-- Created cli/app.py with Click-based CLI interface
-- Added requirements.txt for dependencies
-- Refactored to Cosmic Python patterns: Repository, Service Layer, Dependency Injection
-- Replaced dataclasses with Pydantic models for validation
-- Implemented ruff (linting/formatting) and pyright (type checking)
-- Added comprehensive unit tests with 100% coverage for shared/ directory
+- Identified `local/` as sample CSV fixture and legacy import data
+- Updated contextual references to remove CLI/Python-specific assumptions
 
 ## In Progress
 
-- None yet.
+- Reviewing remaining context docs for stale folder and runtime references
 
 ## Next Up
 
-1. Add CSV persistence layer for data storage
-2. Add integration tests for CLI workflows
-3. Implement Houses Management CRUD with same patterns
-4. Expand test coverage to new features
-5. Implement authentication system
+1. Confirm runtime and deployment instructions for Serverpod and Flutter
+2. Update any remaining docs that still reference legacy CLI architecture
+3. Ensure feature specs reflect current frontend/backend structure
 
 ## Open Questions
 
-- How should CSV files be structured for relationships between entities?
-- Should there be data validation at the CLI level or only in `shared/`?
+- Should `local/` continue to be maintained as sample data only?
+- Are there additional Serverpod conventions we should capture in `context/`?
 
 ## Architecture Decisions
 
-- **Decision:** Use CLI instead of web application for better local development and deployment flexibility.
-  - **Rationale:** Simplifies deployment, reduces infrastructure requirements, better suited for local team management.
-- **Decision:** Use CSV files instead of PostgreSQL for initial implementation.
-  - **Rationale:** Easier to set up locally, files are portable, suitable for MVP phase.
-- **Decision:** Separate concerns into `cli/`, `shared/`, and `local/` folders.
-  - **Rationale:** Clear boundaries between user interface, business logic, and data storage; makes testing and maintenance easier.
-- **Decision:** Consolidate documentation into `context/` only.
-  - **Rationale:** `context/` is the single source of truth for AI workflow, implementation guidance, and feature specs.
-- **Decision:** Use Click framework for CLI commands.
-  - **Rationale:** Provides clean command structure, argument parsing, and help generation; widely used in Python CLI tools.
+- **Decision:** Use Flutter frontend with Serverpod backend for cross-platform delivery.
+  - **Rationale:** Modern UI, shared client code, and robust backend routing.
+- **Decision:** Treat the Serverpod backend as the primary business logic layer.
+  - **Rationale:** Centralizes auth, validation, and persistence.
+- **Decision:** Keep `local/` as sample/legacy CSV data.
+  - **Rationale:** Preserves dataset history without making it the runtime store.
+- **Decision:** Consolidate documentation into `context/`.
+  - **Rationale:** `context/` is the single source of truth for architecture, workflow, and feature guidance.
 
 ## Session Notes
 
-- User initiated shift from Flask web UI to CLI application
-- New structure: CLI (frontend) → Shared (backend) → Local CSV database
-- Migrated documentation: `context/` now reflects CLI architecture and feature guidance
-- Created separate data-model.md in context/ for data structure reference
-- Next session should start with scaffolding the project structure
-- Refactored feature specs under `context/features/` to reference Flutter (Dart) for frontend and a Serverpod backend instead of Vanilla JS and Flask.
-- Current task: verify other context docs (architecture, ui-context) for remaining Flask/JS references and update them to Flutter/Dart as needed.
+- Repository now centers on Flutter + Serverpod instead of a Python CLI
+- Documentation has been updated to reflect the current project shape
+- Next session should focus on confirming Serverpod build/run steps and aligning feature docs with the actual app implementation

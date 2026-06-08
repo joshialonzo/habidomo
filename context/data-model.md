@@ -1,6 +1,6 @@
 # Data Model Reference
 
-This file documents the core data structures and CSV schemas for the Habidomo application. All models are defined as Python dataclasses in `shared/models/`.
+This file documents the core data structures and CSV schemas for the Habidomo application. The authoritative schema is defined in `habidomo_server/` and exposed through Serverpod endpoints. Generated API contracts are available in `habidomo_client/`.
 
 ## Entity Relationships
 
@@ -76,7 +76,7 @@ A shared condominium expense (e.g., maintenance, utilities).
 
 ## CSV File Structure
 
-All CSV files in `local/` follow these conventions:
+All sample CSV files in `local/` follow these conventions:
 - **Headers:** First row contains field names in `snake_case`
 - **Encoding:** UTF-8
 - **Quoting:** Values containing commas must be quoted
@@ -85,7 +85,7 @@ All CSV files in `local/` follow these conventions:
 
 ## Referential Integrity
 
-The application logic (in `shared/`) is responsible for maintaining referential integrity:
+The Serverpod backend in `habidomo_server/` is responsible for maintaining referential integrity:
 - **Cascading:** When a section is deleted, its houses should be handled gracefully
 - **Constraints:** Foreign key relationships must be validated before writes
 - **Orphans:** Application should prevent orphaned records (e.g., payment without neighbor)

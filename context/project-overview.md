@@ -1,68 +1,68 @@
-# Habidomo — Condominium Management CLI
+# Habidomo — Condominium Management App
 
 ## Overview
 
-Habidomo is a condominium management application that enables administrators to manage sections, houses, neighbors, payments, and expenses — and to generate financial reports that can be shared instantly via WhatsApp or exported to Google Sheets. The application is built as a local CLI tool for ease of deployment and management on local infrastructure.
+Habidomo is a condominium management application that enables administrators to manage sections, houses, neighbors, payments, and expenses — and to generate financial reports that can be shared instantly. The current implementation uses a Flutter frontend and a Serverpod backend for a modern cross-platform user experience.
 
 ## Goals
 
-1. Provide administrators with a fast, reliable way to manage all condominium data without cloud dependencies
-2. Automate financial reporting and enable instant sharing of reports via WhatsApp
-3. Maintain accurate, auditable financial records for oversight committees
-4. Support payment collection workflow with clear neighbor payment status tracking
+1. Provide administrators with a fast, reliable way to manage condominium data.
+2. Automate financial reporting and enable shareable output for committees.
+3. Maintain accurate, auditable financial records.
+4. Support payment collection workflow with clear neighbor payment status tracking.
 
 ## Core User Flow
 
-1. Administrator starts the CLI application
-2. Administrator authenticates with phone number and OTP
-3. Administrator performs data management operations (add sections/houses/neighbors, log payments/expenses)
-4. Administrator generates monthly financial reports
-5. Administrator exports or shares reports via WhatsApp or Google Sheets
+1. Administrator opens the Flutter application.
+2. Administrator authenticates through the Serverpod backend.
+3. Administrator performs data management operations (add sections/houses/neighbors, log payments/expenses).
+4. Administrator generates monthly financial reports.
+5. Administrator exports or shares reports through the app.
 
 ## Features
 
 ### Phase 1: Data Foundation (Admin-First)
 
-- **Authentication**: Phone-based sign-in with OTP. Roles assigned by admin.
+- **Authentication**: Backend-managed sign-in with secure credential handling.
 - **Sections Management**: CRUD for streets/clusters of houses.
 - **Houses Management**: CRUD for lots/properties. Linked to sections.
-- **Neighbors Management**: CRUD for residents. Linked to houses. Phone number as identity.
+- **Neighbors Management**: CRUD for residents. Linked to houses.
 
 ### Phase 2: Financial Core
 
 - **Payments Management**: CRUD for dues received. Linked to neighbors and houses by month.
 - **Expenses Management**: CRUD for condominium expenditures by category and month.
-- **Financial Reports**: Monthly payments, expenses, and balance reports. Copy-to-clipboard (WhatsApp), Google Sheets export.
+- **Financial Reports**: Monthly payments, expenses, and balance reports. Export options and sharing workflow.
 
 ### Phase 3: Community (Future)
 
 - Announcements Board
-- QR Visitor Passes
-- Digital Voting / Polls
+- Visitor management
+- Digital voting / polls
 
 ## Scope
 
 ### In Scope
 
-- CLI-based interface for administrators
-- Local CSV-based data persistence
+- Flutter-based frontend for administrators
+- Serverpod backend for API, authentication, and persistence
 - Core CRUD operations for sections, houses, neighbors, payments, and expenses
 - Monthly financial report generation
 - Report export and sharing integration
-- Role-based access control (admin and read-only roles)
+- Role-based access control
 
 ### Out of Scope
 
-- Mobile app (separate project)
+- Native mobile apps separate from Flutter
 - Real-time notifications
 - Security staff gate management (Phase 3+)
 - Home employee time tracking (Phase 3+)
-- Cloud synchronization (MVP phase uses local storage only)
+- Cloud sync beyond the Serverpod-hosted backend for MVP
 
 ## Success Criteria
 
-1. Administrators can perform CRUD operations on all core entities via CLI commands
-2. Administrators can generate a monthly financial report in under 30 seconds
-3. All financial data is auditable and traceable
-4. The application can be deployed and run locally without external dependencies
-5. Payment collection workflow is clear and efficient (delinquency tracking)
+1. Administrators can perform CRUD operations on all core entities through the Flutter app.
+2. Administrators can generate a monthly financial report in under 30 seconds.
+3. All financial data is auditable and traceable.
+4. The application can be run locally with the Serverpod backend.
+5. Payment collection workflow is clear and efficient.

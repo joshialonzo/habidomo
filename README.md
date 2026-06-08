@@ -4,27 +4,31 @@ Manager for a Condominio.
 
 ## Folder Structure
 
-This repository is organized with a CLI frontend, shared backend logic, and local database storage:
+This repository is organized around a Serverpod backend, a Flutter frontend, and a shared Dart client package:
 
-- **`cli/`**: CLI application for user interaction; entry point for all user-facing commands.
-- **`shared/`**: Backend business logic, data models, and utilities; implements core functionality.
-- **`local/`**: Database storage; CSV files containing application data.
+- **`habidomo_flutter/`**: Flutter application for mobile, desktop, and web.
+- **`habidomo_server/`**: Serverpod backend, API endpoints, authentication, and deployment configuration.
+- **`habidomo_client/`**: Generated Serverpod client package used by the Flutter app.
+- **`local/`**: Sample CSV fixture data and legacy import files.
 - **`context/`**: Project guidance, architecture, feature specs, and workflow rules.
-- **`scripts/`**: Utility scripts for local development and automation.
 
 ## Running the Application
 
-For instructions on how to run, build, and deploy the application, see the documentation in `context/` and the CLI setup guide once the application is scaffolded.
+See the service-specific documentation for the current setup:
+
+- `habidomo_flutter/README.md` — Flutter app and client runtime
+- `habidomo_server/README.md` — Serverpod backend and local development
+- `context/` — architecture, tech stack, and feature guidance
 
 ## Documentation
 
 Project-level documentation lives in the [`context/`](./context/) directory:
 
 - 📋 [**PRD**](./context/project-overview.md) — What we are building, target audience, roles, and feature index.
-- 🏗️ [**Architecture**](./context/architecture.md) — How the frontend, backend, and database connect.
+- 🏗️ [**Architecture**](./context/architecture.md) — How the frontend, backend, and data layers connect.
 - 🧰 [**Tech Stack**](./context/tech-stack.md) — Approved frameworks, libraries, and versions.
-- 🎨 [**Style Guide**](./context/style-guide.md) — Coding conventions for CLI and Python.
-- 🔌 [**Data Model**](./context/data-model.md) — CSV schemas and data model definitions.
+- 🎨 [**Style Guide**](./context/style-guide.md) — Coding conventions for Flutter and Serverpod.
+- 🔌 [**Data Model**](./context/data-model.md) — Data schemas and integration guidance.
 
 ### Feature Specs
 

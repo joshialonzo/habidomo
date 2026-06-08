@@ -9,7 +9,7 @@ Build this project incrementally using a spec-driven workflow. Context files def
 - Work on one feature unit at a time
 - Prefer small, verifiable increments over large speculative changes
 - Do not combine unrelated system boundaries in a single implementation step
-- Separate concerns: CLI layer, shared backend layer, and data persistence layer
+- Separate concerns: Flutter UI layer, Serverpod backend layer, and data persistence layer
 
 ## When to Split Work
 
@@ -49,5 +49,5 @@ Update the relevant context file whenever implementation changes:
 1. The current unit works end to end within its defined scope
 2. No invariant defined in `architecture.md` was violated
 3. `progress-tracker.md` reflects the completed work
-4. CLI commands are testable and functional
-5. Shared backend modules have unit tests passing
+4. Frontend screens and backend endpoints are testable and functional
+5. Serverpod backend modules have unit tests passing

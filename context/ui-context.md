@@ -1,25 +1,31 @@
-# CLI Output Context
+# UI Context
 
-Habidomo is a command-line application. UI theming and styling (colors, typography, components) are not applicable.
+Habidomo uses a Flutter frontend for cross-platform UI. This document captures visual and UX guidance for the app.
 
-## CLI Output Format
+## Flutter UI Format
 
-**Output Formatting Principles:**
-- Clear, human-readable text output
-- Use of ANSI color codes for emphasis (success=green, error=red, warning=yellow)
-- Organized tables for data display (e.g., monthly reports, neighbor lists)
-- Consistent prefixes for message types:
-  - `✓` for success
-  - `✗` for error
-  - `!` for warning
-  - `ℹ` for info
+**UI Principles:**
+- Clean, accessible layouts for mobile, desktop, and web
+- Clear hierarchy with typography, spacing, and component grouping
+- Use consistent color, iconography, and affordances across screens
+- Provide immediate feedback for success, errors, and warnings
 
-**Table Format:**
-- Column headers in uppercase
-- Data rows aligned and readable
-- Optional pagination for large datasets
+**Navigation:**
+- Use standard Flutter navigation patterns for nested flows
+- Keep key tasks reachable from the main dashboard
+- Provide clear back and cancel actions where appropriate
 
-**Help Text:**
-- Every command includes `--help` or `-h` flag
-- Clear usage examples
-- Concise descriptions of arguments and options
+**Data Display:**
+- Use cards, tables, or lists for entities such as sections, houses, neighbors, payments, and expenses
+- Present totals and summaries clearly in report views
+- Use responsive layout behavior for web and tablet form factors
+
+**Accessibility:**
+- Use readable font sizes and contrast
+- Include semantic labels for interactive controls
+- Support screen readers where possible
+
+**Error Handling:**
+- Show friendly error messages when API calls fail
+- Provide retry or corrective actions where appropriate
+- Avoid exposing raw backend errors to end users
